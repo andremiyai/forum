@@ -3,8 +3,9 @@ package br.com.alura.forum.controller.form;
 import br.com.alura.forum.modelo.Topico;
 import br.com.alura.forum.repository.TopicoRepository;
 import com.sun.istack.NotNull;
-import jakarta.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotEmpty;
 
 public class AtualizacaoTopicoForm {
 
@@ -32,7 +33,7 @@ public class AtualizacaoTopicoForm {
     }
 
     public Topico atualizar(Long id, TopicoRepository topicoRepository) {
-        Topico topico = topicoRepository.getReferenceById(id);
+        Topico topico = topicoRepository.getById(id);
         topico.setTitulo(this.titulo);
         topico.setMensagem(this.mensagem);
         return topico;
